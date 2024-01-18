@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserManagement">
+
+    <Button
+        android:id="@+id/newUserButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New User"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/selectUserLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_below="@id/newUserButton" />
+
+    <Spinner
+        android:id="@+id/selectUser"
+        android:layout_width="300dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="25dp"
+        android:layout_below="@id/newUserButton"
+        android:layout_toEndOf="@id/selectUserLabel" />
+
+    <Button
+        android:id="@+id/updateUserButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update User"
+        android:layout_marginTop="75dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/selectUser"/>
+
+    <Button
+        android:id="@+id/deleteUserButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete User"
+        android:layout_marginTop="35dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/updateUserButton"/>
+
+    <Button
+        android:id="@+id/listUserButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="List Users"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/deleteUserButton"/>
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:layout_marginBottom="25dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>
