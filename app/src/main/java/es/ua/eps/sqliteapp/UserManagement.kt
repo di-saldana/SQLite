@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import es.ua.eps.sqliteapp.databinding.ActivityUserManagementBinding
@@ -52,7 +53,7 @@ class UserManagement : AppCompatActivity() {
             }
 
             deleteUserButton.setOnClickListener{
-
+                deleteUser()
             }
 
             listUserButton.setOnClickListener{
@@ -67,8 +68,7 @@ class UserManagement : AppCompatActivity() {
         }
     }
 
-    suspend fun listUsers()
-    {
+    suspend fun listUsers() {
         GlobalScope.launch {
             users = db.userDAO().loadAll()
 
@@ -101,4 +101,25 @@ class UserManagement : AppCompatActivity() {
             }
         }
     }
+
+    fun deleteUser() {
+        GlobalScope.launch {
+            if (pos >= 0 && pos < users.size) {
+                val userToDelete = users[pos]
+
+                db.userDAO().delete(userToDelete)
+
+                listUsers()
+
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(this@UserManagement, "Usuario eliminado exitosamente", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(this@UserManagement, "Seleccione un usuario válido", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
 }
