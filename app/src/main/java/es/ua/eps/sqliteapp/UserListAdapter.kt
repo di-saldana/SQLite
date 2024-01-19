@@ -16,11 +16,11 @@ class UserListAdapter : RecyclerView.Adapter<UserListAdapter.UserViewHolder>() {
 
     class UserViewHolder(view: View): RecyclerView.ViewHolder(view){
         private var username = view.findViewById<TextView>(R.id.username)
-        private var nombre = view.findViewById<TextView>(R.id.email)
+        private var email = view.findViewById<TextView>(R.id.email)
 
         fun bindView(user : User){
             username.text = user.username
-            nombre.text = user.nombre
+            email.text = user.email
         }
     }
 
