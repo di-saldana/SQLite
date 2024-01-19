@@ -6,31 +6,29 @@
     tools:context=".UpdateUser">
 
     <EditText
-        android:id="@+id/updateLoginUserNameEditText"
+        android:id="@+id/updateUsernameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Login"
-        android:layout_marginTop="50dp"
-        android:layout_marginStart="2dp"
+        android:hint="Username"
+        android:layout_marginTop="30dp"
         android:layout_alignParentTop="true" />
 
     <EditText
         android:id="@+id/updatePasswordEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:hint="Password"
         android:inputType="textPassword"
-        android:layout_below="@id/updateLoginUserNameEditText"
+        android:layout_below="@id/updateUsernameEditText"
         android:layout_centerHorizontal="true"/>
 
     <EditText
-        android:id="@+id/updateUserNameEditText"
+        android:id="@+id/updateNameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:hint="User Name"
-        android:inputType="textVisiblePassword"
+        android:layout_marginTop="30dp"
+        android:hint="Nombre Completo"
         android:layout_below="@id/updatePasswordEditText" />
 
     <Button
@@ -39,7 +37,7 @@
         android:layout_height="wrap_content"
         android:text="Update User"
         android:layout_marginTop="75dp"
-        android:layout_below="@id/updateUserNameEditText"
+        android:layout_below="@id/updateNameEditText"
         android:layout_centerHorizontal="true"/>
 
     <Button
@@ -47,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Back"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="35dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"/>
 

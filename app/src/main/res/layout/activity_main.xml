@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextUsername"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:inputType="textPassword"
         android:hint="Password"/>
 
@@ -29,16 +29,17 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextPassword"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:text="Login" />
 
     <Button
         android:id="@+id/buttonClose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/buttonLogin"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="35dp"
         android:text="Close"/>
 
 </RelativeLayout>
