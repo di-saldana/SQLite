@@ -9,6 +9,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import es.ua.eps.sqliteapp.databinding.ActivityUserManagementBinding
@@ -107,18 +108,43 @@ class UserManagement : AppCompatActivity() {
             if (pos >= 0 && pos < users.size) {
                 val userToDelete = users[pos]
 
-                db.userDAO().delete(userToDelete)
-
-                listUsers()
-
                 withContext(Dispatchers.Main) {
-                    Toast.makeText(this@UserManagement, "Usuario eliminado exitosamente", Toast.LENGTH_SHORT).show()
+                    showConfirmationDialog(userToDelete)
                 }
             } else {
                 withContext(Dispatchers.Main) {
                     Toast.makeText(this@UserManagement, "Seleccione un usuario válido", Toast.LENGTH_SHORT).show()
                 }
             }
+        }
+    }
+
+    fun showConfirmationDialog(userToDelete: User) {
+        val alertDialogBuilder = AlertDialog.Builder(this)
+        alertDialogBuilder.setTitle("Delete User")
+        alertDialogBuilder.setMessage("Do you really want to delete the selected user?")
+        alertDialogBuilder.setPositiveButton("Ok") { dialog, _ ->
+            GlobalScope.launch {
+                deleteConfirmed(userToDelete)
+            }
+            dialog.dismiss()
+        }
+
+        alertDialogBuilder.setNegativeButton("Cancel") { dialog, _ ->
+            dialog.dismiss()
+        }
+
+        val alertDialog: AlertDialog = alertDialogBuilder.create()
+        alertDialog.show()
+    }
+
+    suspend fun deleteConfirmed(userToDelete: User) {
+        db.userDAO().delete(userToDelete)
+
+        listUsers()
+
+        withContext(Dispatchers.Main) {
+            Toast.makeText(this@UserManagement, "Usuario eliminado exitosamente", Toast.LENGTH_SHORT).show()
         }
     }
 
