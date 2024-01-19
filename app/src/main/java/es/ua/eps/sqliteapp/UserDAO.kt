@@ -11,8 +11,11 @@ interface UserDAO {
     @Query("SELECT * FROM user")
     fun loadAll(): List<User>
 
-//    @Query("SELECT * FROM user WHERE uid IN (:userIds)")
-//    fun loadAllByUserId(userIds: List<Int>): List<User>
+    @Query("SELECT * FROM user WHERE uid IN (:userIds)")
+    fun loadAllByUsersId(userIds: List<Int>): List<User>
+
+    @Query("SELECT * FROM user WHERE username = :username LIMIT 1")
+    fun loadOneByUsername(username: String): User?
 
     @Query("SELECT * FROM user where username = :username AND password = :password")
     fun login(username: String, password: String): User?
