@@ -5,33 +5,37 @@
     android:layout_height="match_parent"
     tools:context=".ListUsers">
 
-    <TextView
-        android:id="@+id/userLabel"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/box"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:layout_marginStart="15dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:text="User"/>
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/usernameLabel"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            tools:text="Username"
+            android:textSize="15sp"/>
 
-    <TextView
-        android:id="@+id/nameLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:text="Full Name" />
+        <TextView
+            android:id="@+id/emailLabel"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            tools:text="E-Mail"
+            android:textSize="15sp"/>
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_below="@+id/userLabel"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/box"
         android:layout_above="@+id/closeButton"
-        android:layout_height="500dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="15dp"/>
 
     <Button
         android:id="@+id/closeButton"
