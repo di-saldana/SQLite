@@ -22,7 +22,7 @@ class UserData : AppCompatActivity() {
         with(bindings) {
             setContentView(root)
 
-//            nameTextView.text = intent.getStringExtra(COLUMN_NOMBRE_COMPLETO)
+            nameTextView.text = intent.getStringExtra(COLUMN_NOMBRE_COMPLETO)
             usernameTextView.text = intent.getStringExtra(COLUMN_USERNAME)
 
             backButton.setOnClickListener {

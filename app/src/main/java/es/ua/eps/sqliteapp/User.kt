@@ -19,5 +19,5 @@ data class User(
     var email : String,
 
     @ColumnInfo(name = "nombre")
-    var nombre : String){
-}
+    var nombre : String
+)

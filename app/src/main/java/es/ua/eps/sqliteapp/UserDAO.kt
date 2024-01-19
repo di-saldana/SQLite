@@ -14,8 +14,8 @@ interface UserDAO {
 //    @Query("SELECT * FROM user WHERE uid IN (:userIds)")
 //    fun loadAllByUserId(userIds: List<Int>): List<User>
 
-//    @Query("SELECT * FROM user where username = :username AND password = :password")
-//    fun login(username: String, password: String): User?
+    @Query("SELECT * FROM user where username = :username AND password = :password")
+    fun login(username: String, password: String): User?
 
     @Insert
     fun insertAll(vararg users: User)

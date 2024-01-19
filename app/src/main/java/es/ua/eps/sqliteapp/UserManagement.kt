@@ -22,7 +22,9 @@ class UserManagement : AppCompatActivity() {
             }
 
             updateUserButton.setOnClickListener{
-
+                val intent = Intent(this@UserManagement, UpdateUser::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                startActivity(intent)
             }
 
             deleteUserButton.setOnClickListener{
@@ -30,7 +32,9 @@ class UserManagement : AppCompatActivity() {
             }
 
             listUserButton.setOnClickListener{
-
+                val intent = Intent(this@UserManagement, ListUsers::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                startActivity(intent)
             }
 
             backButton.setOnClickListener {

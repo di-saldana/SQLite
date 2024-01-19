@@ -32,7 +32,7 @@ class NewUser : AppCompatActivity() {
                 if (!username.isEmpty() && !password.isEmpty() && !nombre.isEmpty() && !email.isEmpty()) {
                     GlobalScope.launch {
                         val user = User(0, username, password, email, nombre)
-                        db.userDao().insert(user)
+                        db.userDAO().insert(user)
                     }
 
                     Toast.makeText(this@NewUser, "Usuario creado exitosamente", Toast.LENGTH_SHORT)
@@ -41,6 +41,10 @@ class NewUser : AppCompatActivity() {
                     Toast.makeText(this@NewUser, "Favor completar los campos", Toast.LENGTH_SHORT)
                         .show()
                 }
+            }
+
+            closeButton.setOnClickListener {
+                finish()
             }
         }
     }
