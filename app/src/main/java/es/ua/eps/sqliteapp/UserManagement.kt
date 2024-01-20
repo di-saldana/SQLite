@@ -4,6 +4,8 @@ import android.R
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -145,6 +147,34 @@ class UserManagement : AppCompatActivity() {
 
         withContext(Dispatchers.Main) {
             Toast.makeText(this@UserManagement, "Usuario eliminado exitosamente", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(es.ua.eps.sqliteapp.R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            es.ua.eps.sqliteapp.R.id.create -> {
+                val dbManager = DBManager
+                dbManager.createBackup(applicationContext)
+                return true
+            }
+            es.ua.eps.sqliteapp.R.id.restore -> {
+                val dbManager = DBManager
+                dbManager.restoreBackup(applicationContext)
+                return true
+            }
+            es.ua.eps.sqliteapp.R.id.manage -> {
+                val intent = Intent(this, UserManagement::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                startActivity(intent)
+                return true
+            }
+
+            else -> return super.onOptionsItemSelected(item)
         }
     }
 

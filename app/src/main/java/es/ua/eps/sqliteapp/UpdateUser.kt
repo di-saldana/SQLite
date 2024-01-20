@@ -1,7 +1,10 @@
 package es.ua.eps.sqliteapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -55,6 +58,34 @@ class UpdateUser : AppCompatActivity() {
             closeButton.setOnClickListener {
                 finish()
             }
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.create -> {
+                val dbManager = DBManager
+                dbManager.createBackup(applicationContext)
+                return true
+            }
+            R.id.restore -> {
+                val dbManager = DBManager
+                dbManager.restoreBackup(applicationContext)
+                return true
+            }
+            R.id.manage -> {
+                val intent = Intent(this, UserManagement::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                startActivity(intent)
+                return true
+            }
+
+            else -> return super.onOptionsItemSelected(item)
         }
     }
 }

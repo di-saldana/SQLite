@@ -39,13 +39,19 @@ class UserData : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.create -> {
+                val dbManager = DBManager
+                dbManager.createBackup(applicationContext)
                 return true
             }
             R.id.restore -> {
+                val dbManager = DBManager
+                dbManager.restoreBackup(applicationContext)
                 return true
             }
             R.id.manage -> {
-                startActivity(Intent(this, UserManagement::class.java))
+                val intent = Intent(this, UserManagement::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                startActivity(intent)
                 return true
             }
 
